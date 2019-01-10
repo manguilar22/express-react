@@ -1,9 +1,9 @@
+require("./db/config");
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const mongo = require("./db/mongoose");
 const port = process.env.PORT || 5000;
-
 /**
  * Data-Imports
 **/
@@ -14,6 +14,7 @@ const test = [];
  * Express App
  */
 const registry = require("./routes/registry");
+const person = require("./routes/person");
 let app = express();
 
 app.use(bodyParser.json());
@@ -21,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
 
 app.use("/registry",registry);
-
+app.use("/person",person);
 app.get("/",(req,res) => res.send("works"));
 
 app.get("/persons",(req,res) => res.json(persons));
