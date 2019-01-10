@@ -10,12 +10,21 @@ Using express as the **back-end** and react is the **front-end**.
 * All together concurrently
   * ```npm run server```
 
-#### Optimized Dockerfile
+##### package.json
+```json
+"scripts": {
+    "start": "node app.js",
+    "api": "nodemon app.js",
+    "client":"npm run --prefix client start",
+    "server":"concurrently --kill-others \"npm run api\" \"npm run client\"",
+  },
+```
 
-```bash
-sudo docker build --tag <tag-name:version> --no-cache --pull --file Dockerfile .
-sudo docker run --name mongodb --publish=27017:27017 --detach mongodb:latest
-sudo docker run --name express-react --detach --link mongodb:mongodb --publish=5000:5000 --publish=3000:3000 <tag-name:version> 
+#### Dockerfile
+
+```
+sudo docker build --tag <tag-name:version> --file Dockerfile .
+sudo docker run --name express-react --detach --publish=5000:5000 --publish=3000:3000 <tag-name:version> 
 ```
 
 #### Third Party Libraries 
