@@ -1,6 +1,6 @@
 # Express and React
 
-Using express as the **back-end** and react is the **front-end**.
+Using express as the **back-end** and react in the **front-end**.
 
 #### Routing
 * To start express server
@@ -28,7 +28,13 @@ sudo docker build --tag <tag-name:version> --file Dockerfile .
 sudo docker run --name express-react --detach --publish=5000:5000 --publish=3000:3000 <tag-name:version>
 ```
 
+#### Docker-Compose 
+
+```
+sudo docker-compose up
+```
+
 #### Third Party Libraries
-* JsonWebTokens (JWT)
+
 * Mongooose
 * Concurrently 
