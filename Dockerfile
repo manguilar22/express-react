@@ -1,4 +1,4 @@
-FROM node:7
+FROM node:latest
 MAINTAINER label="manguilar22@gmail.com"
 COPY . /app
 WORKDIR /app
