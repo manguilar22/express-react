@@ -2,8 +2,6 @@ const router = require("express").Router();
 
 const dummyData = [];
 
-router.get("/",(req,res) => res.send(dummyData));
-
 router.post("/",(req,res) => {
   const {name,age} = req.body;
   if(name && age){
@@ -14,5 +12,7 @@ router.post("/",(req,res) => {
     return res.status(400).json({"error":"check format"});
   }
 });
+
+router.get("/",(req,res) => res.json(dummyData));
 
 module.exports = router;
