@@ -1,5 +1,18 @@
 version: '3'
 services:
+
+  mongo:
+    image: mongo:express-react
+    build:
+      context: ./server/db
+      dockerfile: Dockerfile
+    container_name: "mongo-express"
+    volumes:
+      - "mongo-project:/data/db"
+    ports:
+      - "27017:27017"
+    restart: always
+
   web:
     image: express-react:demo
     build:
@@ -11,13 +24,9 @@ services:
       - "3000:3000"
     restart: always
     links:
-      - db
-  db:
-    image: mongo:express-react
-    build:
-      context: ./server/db
-      dockerfile: Dockerfile
-    container_name: "mongo-express"
-    ports:
-      - "27017:27017"
-    restart: always
+      - mongo
+    depends_on:
+      - mongo
+
+volumes:
+        mongo-project:

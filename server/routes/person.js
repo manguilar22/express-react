@@ -4,10 +4,20 @@ const {Person} = require("../db/models/person");
 
 router.post("/",(req,res) => {
   const {name,age} = req.body;
-  const document = new Person({name:name,age:age});
-  document.save()
-      .then(res => console.log(res))
-      .catch(err => console.log("Failed submission..."));
+  const person = new Person({name:name,age:age});
+    person.save();
+});
+
+router.post("/test",(req,res) => {
+  const {name,age} = req.body;
+  if(name && age){
+    res.status(200).json({
+        status: 200,
+        post: `Name:\t${name}\tAge:\t${age}`
+    });
+  }else{
+    res.status(400).json({status: "Fail"});
+  }
 });
 
 module.exports = router;

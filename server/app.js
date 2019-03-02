@@ -1,14 +1,12 @@
-require("./db/config");
+require("./db/db");                         // Mongoose
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const mongo = require("./db/mongoose");
 const port = process.env.PORT || 5000;
 /**
- * Data-Imports
+ * Data-Imports (Test-Purpose)
 **/
 const persons = require("./data/persons");
-
 /**
  * Express App
  */
@@ -18,13 +16,9 @@ let app = express();
 /**
  * Public
 **/
-app.use(express.static(require("path").join(__dirname,"public")));
-
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname));
-
+app.use(express.static(path.join(__dirname,"public")));
 /**
  *  Express Routes
  */
@@ -34,4 +28,4 @@ app.get("/",(req,res) => res.render("index"));
 
 app.get("/persons",(req,res) => res.json(persons));
 
-app.listen(port , () => console.log(`Listening::\t${port}`));
+app.listen(port , () => console.log(`[+]\tListening::\t${port}`));
