@@ -1,4 +1,5 @@
 version: '3'
+
 services:
 
   mongo:
@@ -8,7 +9,7 @@ services:
       dockerfile: Dockerfile
     container_name: "mongo-express"
     volumes:
-      - "mongo-project:/data/db"
+      - "./mongo_data:/data/db"
     ports:
       - "27017:27017"
     restart: always
@@ -27,6 +28,3 @@ services:
       - mongo
     depends_on:
       - mongo
-
-volumes:
-        mongo-project:

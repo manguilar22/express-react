@@ -21,7 +21,7 @@ Using express as the **back-end** and react in the **front-end**.
 },
 ```
 
-#### Dockerfile
+#### Dockerfile (Express App ONLY)
 
 ```
 sudo docker build --tag <tag-name:version> --file Dockerfile .
@@ -30,8 +30,14 @@ sudo docker run --name express-react --detach --publish=5000:5000 --publish=3000
 
 #### Docker-Compose 
 
+##### Build application (Optimized)
 ```
-sudo docker-compose up
+sudo docker-compose build --no-cache --pull 
+```
+
+##### Run application
+```
+sudo docker-compose up --detach
 ```
 
 #### Third Party Libraries

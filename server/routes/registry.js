@@ -13,6 +13,6 @@ router.post("/",(req,res) => {
   }
 });
 
-router.get("/",(req,res) => res.json(dummyData));
+router.get("/",(req,res) => res.json({registry:dummyData}));
 
 module.exports = router;
