@@ -8,3 +8,4 @@ server/client/node_modules
 .idea/workspace.xml
 
 mongo_data/*
+.idea
