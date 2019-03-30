@@ -16,4 +16,14 @@ router.post("/",(req,res) => {
    }
 });
 
+router.get("/",(req,res) => {
+    Pet.find({},(err,collection) => {
+        if(err){
+            return res.json({data:"collection is empty"});
+        } else {
+            return res.json({data:collection});
+        }
+    })
+});
+
 module.exports = router;

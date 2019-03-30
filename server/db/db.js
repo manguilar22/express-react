@@ -1,6 +1,6 @@
 const {connect} = require("mongoose");
 
-const {container:{host,port, app}} = require("./config");
+const {host:{host,port, app}} = require("./config");
 
 const url = `mongodb://${host}:${port}/${app}`;
 
