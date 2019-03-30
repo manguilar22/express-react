@@ -1,7 +1,11 @@
 # Express and React
 
 Using express as the **back-end** and react in the **front-end**.
-
+#### Building Project on Host Machine
+* To Build Express Server
+    - ```npm install```
+* To Build React Frontend
+    - ```npm install --prefix server/client```
 #### Routing
 * To start express server
   * ```npm run api```

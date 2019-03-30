@@ -8,7 +8,7 @@
 	<body>
 		<div class="hello">
 		<h1>Hello, Everyone</h1>
-		<p>In this project we can experiment with HTTP verbs, MongoDB, and React.js </p>
+		<p>In this project we can experiment with HTTP verbs, Docker, MongoDB, and React.js </p>
 		</div>
 
 		<div class="verbs">
@@ -19,9 +19,24 @@
 				<dt>PUT</dt>
 				<dt>DELETE</dt>
 			</dl>
+			<h1>Send HTTP Requests with <span style="color:red">curl</span> </h1>
+			<p><b>GET:</b> curl http://localhost:5000</p>
+			<p><b>POST:</b> curl http://localhost:5000/route --header "Content-type:application/json --data '{"name":"myname"}' -X POST</p>
+
 		</div>
 
-	<h1>Docker</h1>
-
+		<div class="docker">
+			<h1>Docker</h1>
+		</div>
+		<div class="mongo">
+			<h1>Mongodb</h1>
+			<blockquote>Mongodb is .....</blockquote>
+			<ol>
+				<li>Notice the file <span style="color:red">config.js</span> in <i>server/db/config.js</i></li>
+				<li>There are two configuration options and there is a reason.</li>
+				<li>When deploying this app on your host machine you must enable the host option</li>
+				<li>When deploying with docker you must use mongo as the localhost because it is declared in the <span style="color:red">docker-compose.yaml</span></li>
+			</ol>
+		</div>
 	</body> 
 </html>

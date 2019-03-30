@@ -5,3 +5,6 @@ server/client/node_modules
 .idea
 .idea/workspace.xml
 .git
+.idea/workspace.xml
+
+mongo_data/*

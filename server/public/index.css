@@ -5,12 +5,15 @@ body {
         font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         
     }
-    div.hello {
+    div.hello, div.verbs, div.docker, div.mongo  {
         width: 600px;
         margin: 5em auto;
         padding: 50px;
         background-color: #fff;
         border-radius: 1em;
+    }
+    div.mongo li {
+        list-style-type: square;
     }
     a:link, a:visited {
         color: #38488f;
