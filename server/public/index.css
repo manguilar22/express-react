@@ -5,7 +5,7 @@ body {
         font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         
     }
-    div.hello, div.verbs, div.docker, div.mongo  {
+    div.hello, div.verbs, div.docker, div.mongo, div.nginx  {
         width: 600px;
         margin: 5em auto;
         padding: 50px;

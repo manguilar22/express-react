@@ -1,3 +1,4 @@
+# Containerize Express and React
 FROM node:latest
 MAINTAINER label="manguilar22@gmail.com"
 COPY . /app

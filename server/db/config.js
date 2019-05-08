@@ -14,12 +14,12 @@ const config = {
       app: "mongo-project"
   },
   host: {
-      host: "localhost",
+      host: "127.0.0.1",
       port: 27017,
       app: "mongo-project"
   },
   driver: {
-      host: "mongodb://localhost:27017/mongo-project" ,
+      host: "mongodb://127.0.0.1:27017/mongo-project" ,
       container: "mongodb://mongo:27017/mongo-project"
   }
 };

@@ -28,3 +28,15 @@ services:
       - mongo
     depends_on:
       - mongo
+
+  server:
+    image: nginx:dev
+    container_name: "nginx-server"
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    restart: always
+    links:
+      - web
+    ports:
+      - "8080:80"

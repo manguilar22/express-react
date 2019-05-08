@@ -15,6 +15,10 @@ export default class SignUp extends Component {
     submit = (e) => {
         const {firstName,lastName,email} = this.state;
         e.preventDefault();
+        // Logic Mongoose ...
+        this.setState({firstName:""});
+        this.setState({lastName:""});
+        this.setState({email:""});
     };
 
     handleFirst = this.firstName.bind(this);

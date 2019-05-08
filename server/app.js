@@ -5,13 +5,8 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const port = process.env.PORT || 5000;
 /**
- * Data-Imports (Test-Purpose)
-**/
-const persons = require("./data/persons");
-/**
  * Express App
  */
-const registry = require("./routes/registry");
 const person = require("./routes/person");
 const pet = require("./routes/pet");
 let app = express();
@@ -24,11 +19,9 @@ app.use(express.static(path.join(__dirname,"public")));
 /**
  *  Express Routes
  */
-app.use("/registry",registry);
 app.use("/person",person);
 app.use("/pet",pet);
-app.get("/",(req,res) => res.render("index"));
 
-app.get("/persons",(req,res) => res.json(persons));
+app.get("/",(req,res) => res.render("index"));
 
 app.listen(port , () => console.log(`[+]\tListening::\t${port}`));

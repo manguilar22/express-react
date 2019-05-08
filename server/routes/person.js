@@ -7,7 +7,7 @@ router.post("/",(req,res) => {
   const person = new Person({name:name,age:age});
     person.save()
         .then(res => res.status(200).json({status: "successful insertion to database"}))
-        .catch(res => res.status(400).json({status: "Failed insertion to database"}));
+        .catch(err => res.status(400).json({status: "Failed insertion to database"}));
 });
 
 router.post("/test",(req,res) => {
