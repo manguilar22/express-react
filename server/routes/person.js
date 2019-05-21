@@ -6,7 +6,7 @@ router.post("/",(req,res) => {
   const {name,age} = req.body;
   const person = new Person({name:name,age:age});
     person.save()
-        .then(res => res.status(200).json({status: "successful insertion to database"}))
+        .then(res => res.status(200).json({status: "Successful insertion to database"}))
         .catch(err => res.status(400).json({status: "Failed insertion to database"}));
 });
 
@@ -20,6 +20,13 @@ router.post("/test",(req,res) => {
   }else{
     res.status(400).json({status: "Fail"});
   }
+});
+
+router.get("/",(req,res) => {
+  Person.find({})
+      .then(collection => res.status(200).json({data:collection}))
+      .catch(err => res.status(200).json({data:"empty"}))
+  //    .finally(() => Person.db.close());
 });
 
 module.exports = router;

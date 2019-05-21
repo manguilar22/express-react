@@ -2,15 +2,13 @@ const {Schema, model} = require("mongoose");
 
 const schema = new Schema({
     type: {
-        type: String,
-        unique: true
+        type: String
     },
     name: {
-        type: String,
-        unique: true
+        type: String
     }
 });
 
-const Pet = model("pet",schema);
+const Pet = model("pets",schema);
 
 module.exports = {Pet};
