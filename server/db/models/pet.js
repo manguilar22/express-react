@@ -9,6 +9,10 @@ const schema = new Schema({
     }
 });
 
-const Pet = model("pets",schema);
+schema.methods.findByType = cb => {
+  return this.model("pet").find({type:this.type},cb);
+};
+
+const Pet = model("pet",schema);
 
 module.exports = {Pet};

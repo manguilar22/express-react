@@ -4,26 +4,37 @@ const router = express.Router();
 const {Pet} = require("../db/models/pet");
 
 router.post("/",(req,res) => {
-   const {type, name} = req.body;
-   if(type && name){
-    const post = new Pet({type:type,name:name});
-    post.save()
-        .then(res => res.status(200).json({status: "Successful Insertion to Pet"}))
-        .catch(err => res.status(200).json({status: "Failed Insertion to Pet"}))
-        .finally(() => post.db.close());
-   } else {
-       return res.status(400).json({status: "Format is incorrect for insertion "});
-   }
+    const {name,type} = req.body;
+    const schema = {name:name, type:type};
+    const pet = new Pet(schema);
+    pet.save()
+        .then(result => res.status(200).json({status:"success"}))
+        .catch(err => res.status(200).json({status:"failed"}));
 });
 
 router.get("/",(req,res) => {
-    Pet.find({},(err,collection) => {
-        if(err){
-            return res.json({data:"collection is empty"});
-        } else {
-            return res.json({data:collection});
-        }
-    })
+
+    Pet.find({})
+        .then(collection => res.status(200).json({data:collection}))
+        .catch(err => res.status(400).json({data:"collection is empty"}));
+
+});
+
+router.route("/name/:name").get((req,res) => {
+    const {name} = req.params;
+    const query = {name:name};
+    Pet.findOne(query)
+        .then(pet => res.status(200).json(pet))
+        .catch(err => res.status(400).json(err));
+});
+
+
+router.route("/type/:type").get((req,res) => {
+   const {type} = req.params;
+   const query = {type:type};
+   Pet.find(query)
+       .then(pet => res.status(200).json({pets:pet}))
+       .catch(err => res.json(400).json({status:"Not Found",err:err}));
 });
 
 module.exports = router;

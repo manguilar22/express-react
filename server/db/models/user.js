@@ -1,27 +1,24 @@
 const {Schema,model} = require("mongoose");
 
-/**
- * User Schema for React Front-End
- * @type {*|Mongoose.Schema}
- */
 const schema = new Schema({
-    firstName: {
+    name: {
         type: String,
-        required: true,
         trim: true,
-    },
-    lastName: {
-        type: String,
         required: true,
-        trim: true,
     },
     email: {
         type: String,
-        required: true,
         trim: true,
+        required: true
+    },
+    password: {
+        type: String,
+        trim: true,
+        required: true
     }
 });
 
+
 const User = model("user",schema);
 
-exports.module = User;
+module.exports = {User};

@@ -11,6 +11,6 @@ const schema = new Schema({
     },
 });
 
-const Person = model("persons",schema);
+const Person = model("person",schema);
 
 module.exports = {Person};

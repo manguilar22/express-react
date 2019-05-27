@@ -8,25 +8,40 @@
 	<body>
 		<div class="hello">
 		<h1>Hello, Everyone</h1>
-		<p>In this project we can experiment with HTTP verbs, Docker, MongoDB, and React.js </p>
+		<blockquote>In this project we can experiment with HTTP verbs, Docker, MongoDB, and React.js </blockquote>
 		</div>
 
-		<div class="verbs">
-			<h1>HTTP Verbs</h1>
+		<div class="app">
+			<h1>Web App</h1>
+			<h4>Routes</h4>
+			<ol>
+				<li>/user</li>
+				<li>/pet</li>
+				<li>/person</li>
+			</ol>
 			<dl>
 				<dt>GET</dt>
+					<dd> curl localhost:5000/user</dd>
+					<dd> curl localhost:5000/pet</dd>
+					<dd> curl localhost:5000/person</dd>
 				<dt>POST</dt>
+					<dd> curl localhost:5000 --header "Content-Type:application/json" --data ' { "name": "Henry", "type": "Cat" } ' -X POST</dd>
 				<dt>PUT</dt>
 				<dt>DELETE</dt>
 			</dl>
 			<h1>Send HTTP Requests with <span style="color:red">curl</span> </h1>
-			<p><b>GET:</b> curl http://localhost:5000</p>
-			<p><b>POST:</b> curl http://localhost:5000/route --header "Content-type:application/json --data '{"name":"myname"}' -X POST</p>
-
+			<h4>GET</h4>
+			<h4>POST</h4>
 		</div>
 
 		<div class="docker">
 			<h1>Docker</h1>
+			<blockquote>
+				Docker is ....
+			</blockquote>
+			<ol>
+				<li></li>
+			</ol>
 		</div>
 
 		<div class="mongo">
@@ -38,10 +53,13 @@
 				<li>When deploying this app on your host machine you must enable the host option</li>
 				<li>When deploying with docker you must use mongo as the localhost because it is declared in the <span style="color:red">docker-compose.yaml</span></li>
 			</ol>
+			<h4>Schemas</h4>
+
 		</div>
 
 		<div class="nginx">
 			<h1>Nginx</h1>
+
 		</div>
 
 	</body>

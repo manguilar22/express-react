@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-
-import SignUp from "./components/SignUp";
-import Random from "./components/driver/Random";
+import {HashRouter} from "react-router-dom";
+import Navigation from "./components/nav/Navigation";
+import Paths from "./components/nav/Paths";
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header>
-            <h1>React Frontend</h1>
-            <Random/>
-        </header>
-      </div>
+      <HashRouter>
+          <Navigation/>
+          <Paths/>
+      </HashRouter>
     );
   }
 }

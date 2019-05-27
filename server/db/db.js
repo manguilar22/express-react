@@ -2,7 +2,7 @@ const {connect} = require("mongoose");
 
 const {driver: {host,container} } = require("./config");
 
-const url = container;
+const url = host;
 
 const database = connect(url,{useNewUrlParser:true})
                       .then(res => console.log(`\n[*]\tMongoDB Connected::\tSuccessfully`))

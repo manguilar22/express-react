@@ -1,11 +1,11 @@
 import React , {Component} from "react";
 import axios from "axios";
 
-export default class Random extends Component {
+export default class Person extends Component {
 
     state = {
         data:[],
-        loaded: "NO",
+        loaded: 0,
     };
 
     componentDidMount() {
@@ -13,19 +13,25 @@ export default class Random extends Component {
           .then(res => {
               let json = res.data;
               let {data} = res.data;
-              this.setState({data:data});
+              this.setState({data:data,loaded:1});
           })
           .catch(err => console.log("ERR"));
     };
 
     render(){
+        const {data,loaded} = this.state;
         return (
+            loaded >= 0 ?
             <div>
                 <h1>Test</h1>
                 <ol>
-                    {this.state.data.map(e => <li key={e._id}>{e.name}</li>)}
+                    {data.map(({_id,name}) => <li key={_id}>{name}</li>)}
                 </ol>
             </div>
+                :
+                <div>
+                    <h1>Empty Database</h1>
+                </div>
         );
     }
 

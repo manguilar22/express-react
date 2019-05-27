@@ -9,6 +9,7 @@ const port = process.env.PORT || 5000;
  */
 const person = require("./routes/person");
 const pet = require("./routes/pet");
+const user = require("./routes/user");
 let app = express();
 /**
  * Public
@@ -21,6 +22,7 @@ app.use(express.static(path.join(__dirname,"public")));
  */
 app.use("/person",person);
 app.use("/pet",pet);
+app.use("/user",user);
 
 app.get("/",(req,res) => res.render("index"));
 

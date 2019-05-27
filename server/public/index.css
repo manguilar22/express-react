@@ -5,16 +5,19 @@ body {
         font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         
     }
-    div.hello, div.verbs, div.docker, div.mongo, div.nginx  {
+
+    li {
+        list-style-type: square;
+    }
+
+    div.hello, div.app, div.docker, div.mongo, div.nginx  {
         width: 600px;
         margin: 5em auto;
         padding: 50px;
         background-color: #fff;
         border-radius: 1em;
     }
-    div.mongo li {
-        list-style-type: square;
-    }
+
     a:link, a:visited {
         color: #38488f;
         text-decoration: none;

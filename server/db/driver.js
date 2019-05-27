@@ -2,11 +2,12 @@ const {MongoClient} = require("mongodb");
 
 const {driver:{host,container}} = require("./config");
 
-const url = container;
+const url = host;
 
 // MongoDB Driver
-const driver = MongoClient.connect(url,{useNewUrlParser:true})
+const client = MongoClient.connect(url,{useNewUrlParser:true});
+client
     .then(res => console.log(`\n[*]\tMongo Driver Connected::\tSuccessfully`))
     .catch(err => console.log(`\n[-]\tMongo Driver Failed.\t${url}`));
 
-module.exports = {driver};
+module.exports = {client};
