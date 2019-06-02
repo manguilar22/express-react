@@ -4,12 +4,13 @@ const router = express.Router();
 const {Pet} = require("../db/models/pet");
 
 router.post("/",(req,res) => {
-    const {name,type} = req.body;
-    const schema = {name:name, type:type};
+    const {name,type,image} = req.body;
+    const schema = {name:name,type:type,image:image};
     const pet = new Pet(schema);
+    console.log(schema);
     pet.save()
-        .then(result => res.status(200).json({status:"success"}))
-        .catch(err => res.status(200).json({status:"failed"}));
+        .then(result => res.status(200).json({status:"successful submission",schema:schema}))
+        .catch(err => res.status(200).json({status:"failed, check format"}));
 });
 
 router.get("/",(req,res) => {

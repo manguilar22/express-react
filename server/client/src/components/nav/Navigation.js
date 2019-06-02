@@ -10,6 +10,7 @@ export default class Navigation extends Component {
                     <li><NavLink to={"/pet"}>Pets</NavLink></li>
                     <li><NavLink to={"/person"}>Persons</NavLink></li>
                     <li><NavLink to={"/user"}>Users</NavLink></li>
+                    <li><NavLink to={"/posts"}>Make Posts</NavLink></li>
                 </ol>
                 </div>
         );

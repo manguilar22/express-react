@@ -8,7 +8,7 @@ const schema = new Schema({
     age:{
         type:String,
         trim: true,
-    },
+    }
 });
 
 const Person = model("person",schema);

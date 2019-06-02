@@ -25,7 +25,7 @@ export default class Pet extends Component {
         const {data, loaded} = this.state;
         return (
             <div>
-                <MaterialButton data={data}/>
+                {data.map(e => <img key={e.name} src={"https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"} alt={e.name}/>)}
             </div>
         );
     }

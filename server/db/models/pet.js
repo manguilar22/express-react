@@ -1,17 +1,25 @@
 const {Schema, model} = require("mongoose");
 
 const schema = new Schema({
+    date: {
+        type: String,
+        default: new Date().toString(),
+    },
     type: {
-        type: String
+        type: String,
+        required: String,
+        trim: true,
     },
     name: {
-        type: String
+        type: String,
+        required: String,
+        trim: true,
+    },
+    image: {
+        type: String,
+        required: String,
     }
 });
-
-schema.methods.findByType = cb => {
-  return this.model("pet").find({type:this.type},cb);
-};
 
 const Pet = model("pet",schema);
 
