@@ -5,6 +5,7 @@ import Home from "../pages/Home";
 import Pet from "../http/Pet";
 import Person from "../http/Person";
 import User from "../http/User";
+import MakePost from "../pages/MakePost";
 
 export default class Paths extends Component {
     render() {
@@ -12,9 +13,10 @@ export default class Paths extends Component {
             <Switch>
             <Route exact path={"/"} component={Home}/>
             <Route path={"/pet"} component={Pet}/>
+            <Route path={"/posts"} component={MakePost}/>     {/* Send Post Request to Express API*/}
             <Route path={"/person"} component={Person}/>
             <Route path={"/user"} component={User}/>
-            <Route path={"*"} component={null}/>        /* 404 Not Found */
+            <Route path={"*"} component={null}/>        {/* 404 Not Found */}
             </Switch>
         );
     }

@@ -22,10 +22,11 @@ export default class Pet extends Component {
     }
 
     render() {
+
         const {data, loaded} = this.state;
         return (
             <div>
-                {data.map(e => <img key={e.name} src={"https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"} alt={e.name}/>)}
+                {data.map(e => <img  width={100} height={100} key={e.image} src={e.image} alt={e.name}/>)}
             </div>
         );
     }
