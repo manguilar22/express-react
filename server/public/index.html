@@ -8,7 +8,20 @@
 	<body>
 		<div class="hello">
 		<h1>Hello, Everyone</h1>
-		<blockquote>In this project we can experiment with HTTP verbs, Docker, MongoDB, and React.js </blockquote>
+		<blockquote>
+			In this project we can experiment with HTTP verbs, Docker, MongoDB, and React.js.
+		</blockquote>
+			<blockquote>
+			The project purpose is to demonstrate a mastery of the network protocols and storage capabilities.
+			The architecture of this project is as follows. The main component of this architecture is express.
+			Express is our master server. Where we connect to the database and prepare to recieve HTTP requests.
+			We can send data through our express rest-api with all http verbs supported. These parameters sent through
+			the network are then stored in our mongodb database. From our mongodb, we can get all legitamite parameters
+			because mongodb's schemas have validation that only allow the desired state of the variables. Our next component
+			is our front-end; react. React recieves all data from our rest-api and no outside sources. React also has forms
+			available to populate our database with more indeces. But we don't access the database directly. Instead through
+			react we send a post request to our express server. Validating our parameters and inserting into our collection.
+			</blockquote>
 		</div>
 
 		<div class="app">
@@ -25,7 +38,7 @@
 					<dd> curl localhost:5000/pet</dd>
 					<dd> curl localhost:5000/person</dd>
 				<dt>POST</dt>
-					<dd> curl localhost:5000 --header "Content-Type:application/json" --data ' { "name": "Henry", "type": "Cat" } ' -X POST</dd>
+					<dd> curl localhost:5000 --header "Content-Type:application/json" --data ' { "name": "Henry", "type": "Cat","image":"https://..." } ' -X POST</dd>
 				<dt>PUT</dt>
 				<dt>DELETE</dt>
 			</dl>
@@ -37,7 +50,9 @@
 		<div class="docker">
 			<h1>Docker</h1>
 			<blockquote>
-				Docker is ....
+				Docker is a containerization client. Whose purpose is to encapsulate your built projects and give them
+				a container environment to run on. This webpage is connected in series with two other containers running
+				together. This project can also be deployed in a swarm architecture because of the docker-compose.yaml.
 			</blockquote>
 			<ol>
 				<li></li>
@@ -54,12 +69,29 @@
 				<li>When deploying with docker you must use mongo as the localhost because it is declared in the <span style="color:red">docker-compose.yaml</span></li>
 			</ol>
 			<h4>Schemas</h4>
+			<dl>
+				<dt>Pet</dt>
+				<dd>name -- String</dd>
+				<dd>type -- String</dd>
+				<dd>image -- https://link</dd>
+				<dt>User</dt>
+				<dd>name -- String</dd>
+				<dd>name -- String</dd>
+				<dd>password -- String</dd>
+				<dt>Person</dt>
+				<dd>name -- String</dd>
+				<dd>age -- Integer</dd>
+			</dl>
 
 		</div>
 
 		<div class="nginx">
 			<h1>Nginx</h1>
-
+			<blockquote>
+				We use it in this project as a load balancer for our rest-api running on port 5000.
+				We want nginx as a load balancer because we want to be prepared to recieve multiple incoming requests
+				at the same time! This is a way we can prepare to scale the data recieved through our rest.
+			</blockquote>
 		</div>
 
 	</body>
