@@ -1,4 +1,5 @@
 const {Schema,model} = require("mongoose");
+const validator = require("validator");
 
 const schema = new Schema({
     name: {
@@ -16,6 +17,11 @@ const schema = new Schema({
         type: String,
         trim: true,
         required: true,
+        validate(value){
+            if(value.toLowerCase().includes("password")){
+                throw new Error("Password can not be password");
+            }
+        }
     }
 });
 

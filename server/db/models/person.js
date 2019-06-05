@@ -6,8 +6,13 @@ const schema = new Schema({
         trim: true,
     },
     age:{
-        type:String,
-        trim: true,
+        type:Number,
+        required: true,
+        validate(value) {
+            if (value >= 18) {
+                throw new Error("18 or older only.");
+            }
+        }
     }
 });
 

@@ -3,6 +3,19 @@ const router = express.Router();
 
 const {Pet} = require("../db/models/pet");
 
+router.get("/:id", async (req,res) => {
+   const _id = req.params.id;
+   try {
+       const pet = await Pet.findById(_id);
+        if (!pet){
+            throw new Error("Pet not found")
+        }
+        res.json(pet);
+   } catch (e) {
+       res.status(5000).send(e);
+   }
+});
+
 router.post("/",(req,res) => {
     const {name,type,image} = req.body;
     const schema = {name:name,type:type,image:image};
@@ -19,6 +32,20 @@ router.get("/",(req,res) => {
         .then(collection => res.status(200).json({data:collection}))
         .catch(err => res.status(400).json({data:"collection is empty"}));
 
+});
+
+router.route("/delete/:id").delete( async (req,res) => {
+    const _id = req.params.id;
+    try {
+        const pet = Pet.findByIdAndDelete(id);
+        if (!pet){
+            throw new Error("Id does not exist");
+            return res.status(404).json({err:"Does not exist"});
+        }
+        return res.status(200).json(pet);
+    } catch (e) {
+        return res.status(500).json({err:e});
+    }
 });
 
 router.route("/name/:name").get((req,res) => {

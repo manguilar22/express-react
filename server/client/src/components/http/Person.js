@@ -11,7 +11,6 @@ export default class Person extends Component {
     componentDidMount() {
       axios.get("/person")
           .then(res => {
-              let json = res.data;
               let {data} = res.data;
               this.setState({data:data,loaded:1});
           })

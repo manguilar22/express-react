@@ -14,6 +14,7 @@ router.post("/",(req,res) => {
            .catch(err => res.status(200).json({status:"Failed"}));
 });
 
+
 router.get("/",(req,res) => {
    User.find({},(err,collection) => {
      if (err) {
@@ -24,5 +25,18 @@ router.get("/",(req,res) => {
    });
 });
 
+
+router.get("/:id", async (req,res) => {
+    const _id = req.params.id;
+    try {
+        const user = await User.findById(_id);
+        if(!user){
+            throw new Error("error");
+        }
+        return res.status(200).json(user);
+    }catch (e) {
+        return res.status(400).send(e);
+    }
+});
 
 module.exports = router;
